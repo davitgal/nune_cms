@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Followers CMS — панель управления продуктами</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>" />
+</head>
+<body>
+  <!-- ====================== LOGIN ====================== -->
+  <div id="login" class="login-screen">
+    <form id="login-form" class="login-card" autocomplete="off">
+      <div class="login-logo">⚙️</div>
+      <h1>Followers&nbsp;CMS</h1>
+      <p class="login-sub">Панель управления цифровыми продуктами</p>
+      <label class="field">
+        <span>Логин</span>
+        <input id="login-user" type="text" placeholder="admin" autocomplete="username" />
+      </label>
+      <label class="field">
+        <span>Пароль</span>
+        <input id="login-pass" type="password" placeholder="••••••••" autocomplete="current-password" />
+      </label>
+      <div id="login-error" class="login-error" hidden>Неверный логин или пароль</div>
+      <button type="submit" class="btn btn-primary btn-block">Войти</button>
+      <p class="login-hint">Демо-доступ: <code>admin</code> / <code>followers2026</code></p>
+    </form>
+  </div>
+
+  <!-- ====================== APP ====================== -->
+  <div id="app" class="app" hidden>
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-logo">⚙️</span>
+        <div>
+          <div class="brand-name">Followers CMS</div>
+          <div class="brand-sub">Products panel</div>
+        </div>
+      </div>
+      <nav id="product-nav" class="product-nav"><!-- products --></nav>
+      <div class="sidebar-footer">
+        <button id="btn-export" class="btn btn-ghost btn-sm" title="Скачать всю конфигурацию в JSON">⬇ Экспорт JSON</button>
+        <button id="btn-reset" class="btn btn-ghost btn-sm danger" title="Откатить к исходным данным из таблицы">↺ Сбросить</button>
+        <button id="btn-logout" class="btn btn-ghost btn-sm">⎋ Выйти</button>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-head">
+        <div>
+          <h2 id="product-title">—</h2>
+          <p id="product-meta" class="muted"></p>
+        </div>
+        <div class="head-actions">
+          <div class="search">
+            <input id="search" type="search" placeholder="Поиск по названию, variant key, ссылке…" />
+          </div>
+          <div class="seg" id="status-filter">
+            <button data-f="all" class="active">Все</button>
+            <button data-f="active">Активные</button>
+            <button data-f="stopped">На стопе</button>
+          </div>
+          <button id="btn-add" class="btn btn-primary">+ Вариант</button>
+        </div>
+      </header>
+      <div id="variant-list" class="variant-list"><!-- cards --></div>
+    </main>
+  </div>
+
+  <!-- ====================== EDITOR DRAWER ====================== -->
+  <div id="drawer-overlay" class="drawer-overlay" hidden></div>
+  <aside id="drawer" class="drawer" hidden aria-label="Редактор варианта">
+    <div class="drawer-head">
+      <div>
+        <div class="drawer-eyebrow" id="drawer-product">—</div>
+        <h3 id="drawer-title">Вариант</h3>
+      </div>
+      <button id="drawer-close" class="icon-btn" title="Закрыть">✕</button>
+    </div>
+    <div id="drawer-body" class="drawer-body"><!-- form --></div>
+    <div class="drawer-foot">
+      <button id="drawer-delete" class="btn btn-ghost danger">Удалить вариант</button>
+      <div class="spacer"></div>
+      <button id="drawer-cancel" class="btn btn-ghost">Отмена</button>
+      <button id="drawer-save" class="btn btn-primary">Сохранить</button>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="seed-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
