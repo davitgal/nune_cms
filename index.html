@@ -25,13 +25,13 @@
       </label>
       <div id="login-error" class="login-error" hidden>Неверный логин или пароль</div>
       <button type="submit" class="btn btn-primary btn-block">Войти</button>
-      <p class="login-hint">Демо-доступ: <code>admin</code> / <code>followers2026</code></p>
     </form>
   </div>
 
   <!-- ====================== APP ====================== -->
   <div id="app" class="app" hidden>
-    <aside class="sidebar">
+    <div id="sidebar-backdrop" class="sidebar-backdrop" hidden></div>
+    <aside id="sidebar" class="sidebar">
       <div class="brand">
         <span class="brand-logo">⚙️</span>
         <div>
@@ -49,9 +49,12 @@
 
     <main class="content">
       <header class="content-head">
-        <div>
-          <h2 id="product-title">—</h2>
-          <p id="product-meta" class="muted"></p>
+        <div class="head-title">
+          <button id="btn-menu" class="icon-btn menu-btn" title="Открыть меню" aria-label="Открыть меню">☰</button>
+          <div>
+            <h2 id="product-title">—</h2>
+            <p id="product-meta" class="muted"></p>
+          </div>
         </div>
         <div class="head-actions">
           <div class="search">

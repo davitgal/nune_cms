@@ -61,6 +61,18 @@
     sessionStorage.removeItem(AUTH_KEY); showLogin();
   });
 
+  // ---- mobile sidebar ----
+  function openSidebar() {
+    document.body.classList.add("sidebar-open");
+    $("#sidebar-backdrop").hidden = false;
+  }
+  function closeSidebar() {
+    document.body.classList.remove("sidebar-open");
+    $("#sidebar-backdrop").hidden = true;
+  }
+  $("#btn-menu").addEventListener("click", openSidebar);
+  $("#sidebar-backdrop").addEventListener("click", closeSidebar);
+
   // ============================================================
   //  BOOT / NAV
   // ============================================================
@@ -77,7 +89,7 @@
     state.data.products.forEach(function (p) {
       var item = el("div", {
         class: "nav-item" + (p.id === state.productId ? " active" : ""),
-        onclick: function () { state.productId = p.id; state.query = ""; $("#search").value = ""; renderNav(); renderProduct(); }
+        onclick: function () { state.productId = p.id; state.query = ""; $("#search").value = ""; renderNav(); renderProduct(); closeSidebar(); }
       }, [
         el("span", { text: p.name }),
         el("span", { class: "badge", text: String(p.variants.length) })

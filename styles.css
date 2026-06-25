@@ -87,8 +87,6 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
   background: var(--red-bg); color: var(--red); border: 1px solid rgba(236,91,91,.3);
   border-radius: 8px; padding: 9px; font-size: 13px; margin-bottom: 14px;
 }
-.login-hint { margin: 16px 0 0; font-size: 12px; color: var(--txt-mute); }
-.login-hint code { color: var(--txt-dim); background: var(--bg-soft); padding: 2px 6px; border-radius: 5px; }
 
 /* ---------- app shell ---------- */
 .app { display: grid; grid-template-columns: 248px 1fr; height: 100vh; overflow: hidden; }
@@ -122,6 +120,9 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
   display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
   flex-wrap: wrap; margin-bottom: 22px;
 }
+.head-title { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.menu-btn { display: none; font-size: 22px; flex: none; }
+.sidebar-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 30; }
 .content-head h2 { margin: 0; font-size: 22px; letter-spacing: -.4px; }
 .muted { color: var(--txt-mute); }
 #product-meta { margin: 4px 0 0; font-size: 13px; }
@@ -238,7 +239,27 @@ textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
 @keyframes toastin { from { transform: translate(-50%, 10px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
 
 @media (max-width: 820px) {
+  body { overflow-x: hidden; }
   .app { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
+  .menu-btn { display: inline-flex; }
+  .sidebar {
+    position: fixed; top: 0; left: 0; bottom: 0; width: 260px; z-index: 35;
+    transform: translateX(-105%); transition: transform .22s ease;
+    border-right: 1px solid var(--line); box-shadow: var(--shadow);
+  }
+  body.sidebar-open .sidebar { transform: none; }
+  .content { padding: 18px 14px 60px; min-width: 0; }
+  .content-head { align-items: center; }
+  .head-title { flex: 1; min-width: 0; }
+  .head-title h2 { font-size: 19px; }
+  #product-meta { font-size: 12px; }
+  .head-actions { width: 100%; gap: 8px; flex-wrap: wrap; }
+  .search { flex: 1 1 100%; min-width: 0; order: -1; }
   .search input { width: 100%; }
+  .seg { flex: 1; }
+  .seg button { flex: 1; text-align: center; }
+  #btn-add { flex: none; }
+  .variant-list { grid-template-columns: 1fr; }
+  .vcard { min-width: 0; }
+  .drawer { width: 100%; }
 }
