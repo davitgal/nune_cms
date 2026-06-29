@@ -98,6 +98,17 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 .brand-logo { font-size: 26px; }
 .brand-name { font-weight: 700; letter-spacing: -.3px; }
 .brand-sub { font-size: 11px; color: var(--txt-mute); text-transform: uppercase; letter-spacing: 1px; }
+.mode-switch {
+  display: flex; gap: 4px; background: var(--bg); border: 1px solid var(--line);
+  border-radius: 10px; padding: 4px; margin: 0 6px 14px;
+}
+.mode-switch button {
+  flex: 1; font: inherit; font-weight: 600; font-size: 12.5px; border: none;
+  background: transparent; color: var(--txt-dim); padding: 8px 6px; border-radius: 7px;
+  cursor: pointer; transition: .15s; white-space: nowrap;
+}
+.mode-switch button:hover { color: var(--txt); }
+.mode-switch button.active { background: var(--panel-2); color: var(--txt); box-shadow: 0 1px 4px rgba(0,0,0,.3); }
 .product-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
 .nav-item {
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
@@ -158,6 +169,55 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .
 .stat b { display: block; font-size: 17px; color: var(--txt); font-weight: 700; }
 .vcard .vlink { font-size: 12px; color: var(--txt-mute); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .empty { grid-column: 1/-1; text-align: center; color: var(--txt-mute); padding: 60px 20px; }
+
+/* ---------- catalog (price-list) ---------- */
+.catalog-view { display: flex; flex-direction: column; gap: 22px; }
+.cat-section {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+}
+.cat-section-head {
+  display: flex; align-items: center; gap: 10px; padding: 13px 16px;
+  border-bottom: 1px solid var(--line); background: var(--panel-2);
+}
+.cat-section-head h3 { margin: 0; font-size: 14px; letter-spacing: -.2px; }
+.cat-section-head .count {
+  font-size: 11px; font-weight: 700; background: var(--bg); color: var(--txt-dim);
+  padding: 2px 9px; border-radius: 20px;
+}
+.cat-section-head .spacer { flex: 1; }
+.cat-table-wrap { overflow-x: auto; }
+.cat-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 880px; }
+.cat-table th {
+  text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--txt-mute); font-weight: 700; padding: 9px 8px; border-bottom: 1px solid var(--line);
+  white-space: nowrap; background: var(--bg-soft); position: sticky; top: 0;
+}
+.cat-table td { padding: 4px 6px; border-bottom: 1px solid var(--line-soft); vertical-align: middle; }
+.cat-table tr:last-child td { border-bottom: none; }
+.cat-table tr:hover td { background: var(--bg-soft); }
+.cat-table input, .cat-table select {
+  font: inherit; font-size: 13px; color: var(--txt); background: transparent;
+  border: 1px solid transparent; border-radius: 7px; padding: 6px 7px; width: 100%; transition: .12s;
+}
+.cat-table input:hover, .cat-table select:hover { border-color: var(--line); }
+.cat-table input:focus, .cat-table select:focus {
+  outline: none; background: var(--bg); border-color: var(--brand); box-shadow: 0 0 0 2px rgba(108,140,255,.18);
+}
+.cat-table input.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--txt-dim); }
+.cat-col-name input { font-weight: 600; min-width: 150px; }
+.cat-col-id input { min-width: 200px; }
+.cat-col-price input { min-width: 110px; }
+.cat-col-billing input { min-width: 150px; }
+.cat-col-cmt input { min-width: 130px; color: var(--txt-dim); }
+.cat-table select.st-on { color: var(--green); font-weight: 700; }
+.cat-table select.st-off { color: var(--amber); font-weight: 700; }
+.cat-table .row-del {
+  background: transparent; border: none; color: var(--txt-mute); cursor: pointer;
+  font-size: 14px; padding: 5px 7px; border-radius: 6px;
+}
+.cat-table .row-del:hover { color: var(--red); background: var(--red-bg); }
+.cat-add-row { margin: 10px 16px 14px; }
+.cat-empty { padding: 18px 16px; color: var(--txt-mute); font-size: 13px; }
 
 /* ---------- drawer ---------- */
 .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 40; }

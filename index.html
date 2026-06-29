@@ -39,6 +39,10 @@
           <div class="brand-sub">Products panel</div>
         </div>
       </div>
+      <div class="mode-switch" id="mode-switch">
+        <button data-m="onb" class="active" title="Онбординги — для продакта / QA">🧩 Онбординги</button>
+        <button data-m="catalog" title="Каталог продуктов — для key-менеджера">💲 Каталог</button>
+      </div>
       <nav id="product-nav" class="product-nav"><!-- products --></nav>
       <div class="sidebar-footer">
         <button id="btn-export" class="btn btn-ghost btn-sm" title="Скачать всю конфигурацию в JSON">⬇ Экспорт JSON</button>
@@ -69,6 +73,7 @@
         </div>
       </header>
       <div id="variant-list" class="variant-list"><!-- cards --></div>
+      <div id="catalog-view" class="catalog-view" hidden><!-- price-list tables --></div>
     </main>
   </div>
 
@@ -94,6 +99,7 @@
   <div id="toast" class="toast" hidden></div>
 
   <script src="seed-data.js"></script>
+  <script src="catalog-data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
