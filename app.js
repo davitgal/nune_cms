@@ -9,7 +9,7 @@
   var CREDS = { user: "admin", pass: "followers2026" };
   var AUTH_KEY = "fcms_auth";
   var DATA_KEY = "fcms_data_v1";
-  var CATALOG_KEY = "fcms_catalog_v1";
+  var CATALOG_KEY = "fcms_catalog_v2";
 
   // ---- tiny helpers ----
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -115,6 +115,7 @@
     $("#search").placeholder = isCat
       ? "Поиск по продукту, Product ID, billing…"
       : "Поиск по названию, variant key, ссылке…";
+    $("#btn-add").title = isCat ? "Добавить продукт" : "Добавить вариант онбординга";
   }
 
   function switchMode(m) {
@@ -171,21 +172,24 @@
   }
 
   // ============================================================
-  //  CATALOG (price-list) — домен key-менеджера
+  //  PRODUCTS (price-list) — домен key-менеджера
   // ============================================================
-  var CAT_COLS = [
-    { k: "name",      label: "Продукт",          cls: "cat-col-name" },
-    { k: "productId", label: "Product ID",       cls: "cat-col-id", mono: true },
-    { k: "price",     label: "Цена",             cls: "cat-col-price" },
-    { k: "setupFee",  label: "Setup fee",        cls: "" },
-    { k: "trial",     label: "Trial",            cls: "" },
-    { k: "billing",   label: "Billing / variant",cls: "cat-col-billing", mono: true },
-    { k: "segment",   label: "Сегмент",          cls: "" }
+  // editable fields shown in the product editor drawer
+  var CAT_FIELDS = [
+    { k: "name",      label: "Название продукта", ph: "Insta Followers Plan" },
+    { k: "productId", label: "Product ID",        ph: "insta_follow_plan_…", mono: true },
+    { k: "price",     label: "Цена",              ph: "$39.99 USD/month" },
+    { k: "setupFee",  label: "Setup fee",         ph: "$4.99 USD" },
+    { k: "trial",     label: "Trial",             ph: "3 days" },
+    { k: "billing",   label: "Billing / variant", ph: "truegate id / variant", mono: true },
+    { k: "segment",   label: "Сегмент",           ph: "орг / нон-орг / VAT" }
   ];
+
+  function isFiltering() { return !!state.query || state.filter !== "all"; }
 
   function catMatches(row) {
     if (state.filter === "active" && row.status !== "on") return false;
-    if (state.filter === "stopped" && row.status !== "off") return false;
+    if (state.filter === "stopped" && row.status === "on") return false; // "Выкл" = всё, что не on
     if (state.query) {
       var q = state.query.toLowerCase();
       var hay = [row.name, row.productId, row.billing, row.segment, row.comments].join(" ").toLowerCase();
@@ -199,54 +203,36 @@
     var view = $("#catalog-view");
     view.innerHTML = "";
     if (!p) {
-      $("#product-title").textContent = "Каталог";
-      $("#product-meta").textContent = "Нет данных каталога.";
+      $("#product-title").textContent = "Продукты";
+      $("#product-meta").textContent = "Нет данных.";
       return;
     }
-    var total = 0, on = 0;
-    p.sections.forEach(function (s) {
-      total += s.rows.length;
-      on += s.rows.filter(function (r) { return r.status === "on"; }).length;
-    });
-    $("#product-title").textContent = p.name + " · каталог";
-    $("#product-meta").textContent =
-      total + " продуктов · " + on + " активных · " + p.sections.length + " секций · ведёт key-менеджер";
+    renderCatalogMeta();
 
-    p.sections.forEach(function (section, si) {
+    p.sections.forEach(function (section) {
       var visible = section.rows.filter(catMatches);
-      // hide a whole section if filtering/searching left it empty
-      if (!visible.length && (state.query || state.filter !== "all")) return;
+      if (!visible.length && isFiltering()) return; // прячем пустую после фильтра секцию
 
-      var body = el("tbody");
+      var accent = sectionAccent(section.title);
+      var list = el("div", { class: "cat-list" });
       var sec = el("div", { class: "cat-section" }, [
-        el("div", { class: "cat-section-head" }, [
+        el("div", { class: "cat-section-head", style: "border-left:3px solid " + accent.color + ";background:" + accent.bg }, [
           el("h3", { text: section.title }),
           el("span", { class: "count", text: String(section.rows.length) }),
           el("div", { class: "spacer" }),
           el("button", {
             class: "btn btn-ghost btn-sm", text: "+ строка",
-            onclick: function () {
-              section.rows.push({ name: "", productId: "", price: "", setupFee: "", trial: "", billing: "", segment: "", status: "on", comments: "" });
-              persistCatalog(); renderCatalog();
-            }
+            title: "Добавить продукт в секцию «" + section.title + "»",
+            onclick: function () { addCatRow(section); }
           })
         ])
       ]);
 
-      var table = el("table", { class: "cat-table" });
-      var headTr = el("tr");
-      CAT_COLS.forEach(function (c) { headTr.appendChild(el("th", { text: c.label })); });
-      headTr.appendChild(el("th", { text: "Статус" }));
-      headTr.appendChild(el("th", { text: "Комментарий" }));
-      headTr.appendChild(el("th", { text: "" }));
-      table.appendChild(el("thead", {}, [headTr]));
-
       if (!visible.length) {
         sec.appendChild(el("div", { class: "cat-empty", text: "Пока пусто — нажмите «+ строка», чтобы добавить продукт." }));
       } else {
-        visible.forEach(function (row) { body.appendChild(catRow(row, section)); });
-        table.appendChild(body);
-        sec.appendChild(el("div", { class: "cat-table-wrap" }, [table]));
+        visible.forEach(function (row) { list.appendChild(catRow(row, section, accent)); });
+        sec.appendChild(list);
       }
       view.appendChild(sec);
     });
@@ -256,53 +242,101 @@
     }
   }
 
-  function catCell(row, col) {
-    var input = el("input", {
-      type: "text", value: row[col.k] || "",
-      class: col.mono ? "mono" : "",
-      oninput: function (e) { row[col.k] = e.target.value; persistCatalog(); }
-    });
-    return el("td", { class: col.cls }, [input]);
+  // per-section accent colour (немного цвета + быстрее ориентироваться)
+  function sectionAccent(title) {
+    var t = (title || "").toLowerCase();
+    if (t.indexOf("подписк") > -1) return { color: "#6c8cff", bg: "rgba(108,140,255,.10)" };
+    if (t.indexOf("апсейл") > -1) return { color: "#8a6cff", bg: "rgba(138,108,255,.10)" };
+    if (t.indexOf("инап") > -1 || t.indexOf("сетк") > -1) return { color: "#2fbf71", bg: "rgba(47,191,113,.10)" };
+    if (t.indexOf("промо") > -1) return { color: "#f0a035", bg: "rgba(240,160,53,.10)" };
+    if (t.indexOf("фолов") > -1 || t.indexOf("лайк") > -1 || t.indexOf("коммент") > -1) return { color: "#37b6c4", bg: "rgba(55,182,196,.10)" };
+    return { color: "var(--line)", bg: "transparent" };
   }
 
-  function catRow(row, section) {
-    var tr = el("tr");
-    CAT_COLS.forEach(function (c) { tr.appendChild(catCell(row, c)); });
+  function catRow(row, section, accent) {
+    var canReorder = !isFiltering();
+    var handle = el("span", {
+      class: "cat-grab" + (canReorder ? "" : " disabled"),
+      text: "⠿",
+      title: canReorder ? "Перетащите, чтобы изменить порядок" : "Сбросьте поиск и фильтр, чтобы сортировать",
+      draggable: canReorder ? "true" : null
+    });
 
-    // status select
-    var sel = el("select", {
-      class: row.status === "on" ? "st-on" : (row.status === "off" ? "st-off" : ""),
-      onchange: function (e) {
-        row.status = e.target.value;
+    var statusOn = row.status === "on";
+    var pill = el("button", {
+      class: "pill " + (statusOn ? "active" : "stopped") + " pill-btn",
+      text: statusOn ? "Вкл" : "Выкл",
+      title: "Переключить статус",
+      onclick: function (e) {
+        e.stopPropagation();
+        row.status = statusOn ? "off" : "on";
         persistCatalog();
-        if (state.filter !== "all") renderCatalog();
-        else { sel.className = row.status === "on" ? "st-on" : (row.status === "off" ? "st-off" : ""); $("#product-meta") && renderCatalogMeta(); }
+        renderCatalog();
       }
     });
-    [{ v: "on", t: "Вкл" }, { v: "off", t: "Выкл" }, { v: "", t: "—" }].forEach(function (o) {
-      var opt = el("option", { value: o.v, text: o.t });
-      if (o.v === row.status) opt.selected = true;
-      sel.appendChild(opt);
-    });
-    tr.appendChild(el("td", {}, [sel]));
 
-    // comments
-    var cmt = el("input", {
-      type: "text", value: row.comments || "", class: "",
-      oninput: function (e) { row.comments = e.target.value; persistCatalog(); }
-    });
-    tr.appendChild(el("td", { class: "cat-col-cmt" }, [cmt]));
+    var rowEl = el("div", {
+      class: "cat-row",
+      onclick: function () { openCatEditor(row, section, false); }
+    }, [
+      handle,
+      el("div", { class: "cat-row-main" }, [
+        el("div", { class: "cat-row-name", text: row.name || "Без названия" }),
+        el("div", { class: "cat-row-id", text: row.productId || "— без product id —" })
+      ]),
+      el("div", { class: "cat-row-price", text: row.price || "" }),
+      el("div", { class: "cat-row-seg", text: row.segment || "" }),
+      pill,
+      el("button", {
+        class: "row-del", text: "🗑", title: "Удалить",
+        onclick: function (e) {
+          e.stopPropagation();
+          if (!confirm("Удалить «" + (row.name || row.productId || "продукт") + "»?")) return;
+          var idx = section.rows.indexOf(row);
+          if (idx > -1) section.rows.splice(idx, 1);
+          persistCatalog(); renderCatalog();
+          toast("Удалено", "warn");
+        }
+      })
+    ]);
 
-    // delete
-    tr.appendChild(el("td", {}, [el("button", {
-      class: "row-del", text: "🗑", title: "Удалить строку",
-      onclick: function () {
-        var idx = section.rows.indexOf(row);
-        if (idx > -1) section.rows.splice(idx, 1);
+    // drag-and-drop reorder (внутри одной секции)
+    if (canReorder) {
+      handle.addEventListener("dragstart", function (e) {
+        state.dragRow = row; state.dragSection = section;
+        e.dataTransfer.effectAllowed = "move";
+        try { e.dataTransfer.setData("text/plain", ""); } catch (_) {}
+        try { e.dataTransfer.setDragImage(rowEl, 20, 16); } catch (_) {}
+        setTimeout(function () { rowEl.classList.add("dragging"); }, 0);
+      });
+      handle.addEventListener("dragend", function () {
+        rowEl.classList.remove("dragging");
+        $$(".cat-row.drop-target").forEach(function (n) { n.classList.remove("drop-target"); });
+        state.dragRow = null; state.dragSection = null;
+      });
+      rowEl.addEventListener("dragover", function (e) {
+        if (!state.dragRow || state.dragSection !== section || state.dragRow === row) return;
+        e.preventDefault();
+        rowEl.classList.add("drop-target");
+      });
+      rowEl.addEventListener("dragleave", function () { rowEl.classList.remove("drop-target"); });
+      rowEl.addEventListener("drop", function (e) {
+        if (!state.dragRow || state.dragSection !== section || state.dragRow === row) return;
+        e.preventDefault();
+        var from = section.rows.indexOf(state.dragRow);
+        if (from > -1) section.rows.splice(from, 1);
+        var to = section.rows.indexOf(row);
+        section.rows.splice(to, 0, state.dragRow);
         persistCatalog(); renderCatalog();
-      }
-    })]));
-    return tr;
+      });
+    }
+    return rowEl;
+  }
+
+  function addCatRow(section) {
+    // строка добавляется в секцию только после «Сохранить» (отмена ничего не создаёт)
+    var row = { name: "", productId: "", price: "", setupFee: "", trial: "", billing: "", segment: "", status: "off", comments: "" };
+    openCatEditor(row, section, true);
   }
 
   function renderCatalogMeta() {
@@ -313,8 +347,71 @@
       total += s.rows.length;
       on += s.rows.filter(function (r) { return r.status === "on"; }).length;
     });
+    $("#product-title").textContent = p.name + " · продукты";
     $("#product-meta").textContent =
-      total + " продуктов · " + on + " активных · " + p.sections.length + " секций · ведёт key-менеджер";
+      total + " продуктов · " + on + " включённых · " + p.sections.length + " секций · ведёт key-менеджер";
+  }
+
+  // ---- product editor (drawer) ----
+  function openCatEditor(row, section, isNew) {
+    state.editKind = "cat";
+    state.editing = clone(row);
+    state.isNew = isNew;
+    state.catSection = section;
+    state.catOriginal = row;
+    $("#drawer-product").textContent = currentCatProduct().name + " · " + section.title;
+    $("#drawer-title").textContent = isNew ? "Новый продукт" : (row.name || row.productId || "Продукт");
+    $("#drawer-delete").textContent = "Удалить продукт";
+    $("#drawer-delete").style.display = isNew ? "none" : "";
+    renderCatForm();
+    $("#drawer-overlay").hidden = false;
+    $("#drawer").hidden = false;
+  }
+
+  function renderCatForm() {
+    var d = state.editing, body = $("#drawer-body");
+    body.innerHTML = "";
+    var core = el("div", { class: "section" });
+    CAT_FIELDS.forEach(function (f) {
+      core.appendChild(field(f.label, d[f.k], function (v) { d[f.k] = v; }, { ph: f.ph }));
+    });
+    body.appendChild(core);
+
+    var st = el("div", { class: "section" });
+    st.appendChild(selectField("Статус (orders)", d.status || "off", [
+      { v: "on", t: "Вкл — продукт live" },
+      { v: "off", t: "Выкл — не используется" }
+    ], function (v) { d.status = v; }));
+    body.appendChild(st);
+
+    var cm = el("div", { class: "section" });
+    cm.appendChild(sectionHead("Комментарий"));
+    cm.appendChild(field("", d.comments, function (v) { d.comments = v; }, { textarea: true, ph: "Заметка key-менеджера: где используется, A/B и т.д." }));
+    body.appendChild(cm);
+  }
+
+  function saveCat() {
+    var d = state.editing, sec = state.catSection;
+    if (!d.name.trim() && !d.productId.trim()) { toast("Укажите название или Product ID", "warn"); return; }
+    var idx = sec.rows.indexOf(state.catOriginal);
+    if (idx > -1) sec.rows[idx] = d; else sec.rows.push(d);
+    persistCatalog();
+    closeEditor();
+    renderCatalog();
+    toast("Сохранено", "ok");
+  }
+
+  function deleteCat() {
+    var sec = state.catSection;
+    var idx = sec.rows.indexOf(state.catOriginal);
+    if (idx < 0) { closeEditor(); return; } // ещё не сохранённый продукт
+    var name = state.editing.name || state.editing.productId || "продукт";
+    if (!confirm("Удалить «" + name + "»? Действие необратимо.")) return;
+    sec.rows.splice(idx, 1);
+    persistCatalog();
+    closeEditor();
+    renderCatalog();
+    toast("Удалено", "warn");
   }
 
   function matches(v) {
@@ -382,21 +479,17 @@
     var p = currentCatProduct();
     if (!p) return;
     if (!p.sections.length) p.sections.push({ title: "Подписки", rows: [] });
-    p.sections[0].rows.push({ name: "", productId: "", price: "", setupFee: "", trial: "", billing: "", segment: "", status: "on", comments: "" });
-    state.query = ""; $("#search").value = "";
-    state.filter = "all";
-    $$("#status-filter button").forEach(function (x) { x.classList.toggle("active", x.dataset.f === "all"); });
-    persistCatalog();
-    renderCatalog();
-    toast("Добавлена строка в «" + p.sections[0].title + "»", "ok");
+    addCatRow(p.sections[0]); // открывает редактор; строка добавится после «Сохранить»
   }
 
   // ============================================================
   //  EDITOR DRAWER
   // ============================================================
   function openEditor(variant, isNew) {
+    state.editKind = "onb";
     state.editing = clone(variant);
     state.isNew = isNew;
+    $("#drawer-delete").textContent = "Удалить вариант";
     $("#drawer-product").textContent = currentProduct().name;
     $("#drawer-title").textContent = isNew ? "Новый вариант" : (variant.name || "Вариант");
     $("#drawer-delete").style.display = isNew ? "none" : "";
@@ -598,6 +691,7 @@
 
   // ---- save / delete ----
   $("#drawer-save").addEventListener("click", function () {
+    if (state.editKind === "cat") { saveCat(); return; }
     var d = state.editing, p = currentProduct();
     if (!d.name.trim()) { toast("Укажите название варианта", "warn"); return; }
     d.statusLabel = d.status === "active" ? "Активен" : "На стопе";
@@ -613,6 +707,7 @@
     toast("Сохранено", "ok");
   });
   $("#drawer-delete").addEventListener("click", function () {
+    if (state.editKind === "cat") { deleteCat(); return; }
     var d = state.editing, p = currentProduct();
     if (!confirm("Удалить вариант «" + (d.name || "без названия") + "»? Действие необратимо.")) return;
     p.variants = p.variants.filter(function (v) { return v.id !== d.id; });
@@ -635,7 +730,7 @@
     toast("Экспортировано: онбординги + каталог", "ok");
   });
   $("#btn-reset").addEventListener("click", function () {
-    var what = state.mode === "catalog" ? "каталог продуктов" : "онбординги";
+    var what = state.mode === "catalog" ? "продукты" : "онбординги";
     if (!confirm("Сбросить «" + what + "» к исходным данным из таблицы?")) return;
     if (state.mode === "catalog") { localStorage.removeItem(CATALOG_KEY); state.catalog = loadCatalog(); }
     else { localStorage.removeItem(DATA_KEY); state.data = loadData(); }

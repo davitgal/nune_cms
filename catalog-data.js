@@ -17,7 +17,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "65fc10e4-9422-45af-8683-b97791824209",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -28,7 +28,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "fb00c2d8-e59f-4866-8715-c1bfe1a72983",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -39,7 +39,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "23922944-7e18-4bfa-b3f1-5f2ac0dd4cd8",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -50,7 +50,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "32739552-8b4f-4843-b54d-d91f96728f08",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -61,7 +61,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "b86d4dbe-3493-4fc5-b627-ac191450e245",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -72,7 +72,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "8dff2c81-3dc7-4b75-8e8d-5a3bf6e500aa",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -83,7 +83,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "7d7d0ed3-f469-4a0f-b2dd-f9c1a9948591",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -94,7 +94,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "35643e77-e580-46e2-b0f6-4d072eeab165",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -116,7 +116,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "99d35b44-cb6d-46a7-adef-125bc580669c",
               "segment": "орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -127,7 +127,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "b3e45879-717e-4370-8058-551086b1cc14",
               "segment": "орг",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -149,7 +149,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "844496a7-43c9-4c92-94ba-ad0786b360fe",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -160,7 +160,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "026dd933-b53d-4137-b254-7b8079e2244d",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -171,7 +171,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "d33a98f3-e95b-44e9-8a5c-c741b8335c99",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -182,7 +182,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "d172bfed-b23c-418a-9d6b-431922b1a672",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -193,7 +193,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "d45c520e-2ca4-4336-ae2d-71f5ae137ee6",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -204,7 +204,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "7dc45a46-3faa-43dc-bd77-c0e362688711",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -215,7 +215,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "3e94c106-4405-4b38-9965-75453a912eae",
               "segment": "VAT",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -226,7 +226,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "0e1e5aa6-2cc5-4835-8849-704605043b31",
               "segment": "VAT",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -237,7 +237,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "a215a1bb-c721-488b-888a-166b37839897",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -248,7 +248,7 @@ window.CATALOG_DATA = {
               "trial": "4 days",
               "billing": "febdb9de-7bd2-41b7-97bf-4b5bbb7fc758",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -259,7 +259,7 @@ window.CATALOG_DATA = {
               "trial": "5 days",
               "billing": "e418394b-998e-4e5f-9e68-043f53ce145d",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -270,7 +270,7 @@ window.CATALOG_DATA = {
               "trial": "6 days",
               "billing": "a514f6ad-151f-45fb-9d1a-bdf1d015bb45",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -281,7 +281,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "2fb20848-7037-43f6-8be8-f2e28feaaf71",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -292,7 +292,7 @@ window.CATALOG_DATA = {
               "trial": "8 days",
               "billing": "6a1a1369-8fb4-4c1d-a55f-c33b424cdc9b",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -303,7 +303,7 @@ window.CATALOG_DATA = {
               "trial": "9 days",
               "billing": "52edfbd4-2952-4af6-9da4-7dbd0e1ab05c",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -314,7 +314,7 @@ window.CATALOG_DATA = {
               "trial": "10 days",
               "billing": "a987e7a7-1fae-4fb7-bd8d-6e3e33f6f520",
               "segment": "VAT",
-              "status": "on",
+              "status": "off",
               "comments": "для inapp+sub / не используем"
             },
             {
@@ -325,7 +325,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "5beef06e-85bf-4fb8-aa7f-4f1409f672fe",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -336,7 +336,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "07cbd737-a475-44b8-ba5d-75e5aa1d0164",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -347,7 +347,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "e2de0882-a88f-4a97-9fab-ae9a8b15f9e1",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -358,7 +358,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "6c42fa13-efc4-4ba7-afbf-ce3a61d0ae9e",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -369,7 +369,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "98cd01fa-3f7a-4ee4-b9b5-9e7d52ba9650",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -380,7 +380,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "562c9cbe-31b8-4070-a8fa-306eadddbd3f",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -391,7 +391,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "42b1c67d-69b8-4766-a7d0-2329dedfa18b",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -402,7 +402,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "1b92e840-9805-4364-9dd4-d57bc0786126",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             },
             {
@@ -413,7 +413,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "1366bb02-7868-44c8-99dd-00d4d45c62ad",
               "segment": "1time",
-              "status": "on",
+              "status": "off",
               "comments": "одноразовый-моментальное начисление"
             }
           ]
@@ -429,7 +429,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "1b4d9a20-21a5-4355-a651-0d69f99ee652",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "подписка после апсейла"
             },
             {
@@ -440,7 +440,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "c2f5b0ed-6669-4c52-bf01-f2be64e38e2e",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "подписка после апсейла"
             },
             {
@@ -451,7 +451,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "f7e51ca1-1f1c-4a64-a58f-d706d4839872",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "подписка после апсейла"
             },
             {
@@ -462,7 +462,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "f8b6be8f-5ff1-48fe-bc2b-51c7ad22eedd",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -473,7 +473,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "ee33ea57-bccc-46a6-a0bc-a7a395dbebb3",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -484,7 +484,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "abbf25fe-de6f-446f-a7bd-9a252563cda6",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -495,7 +495,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "e63e5d6b-82d2-4920-a7b8-b39003c450c0",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -506,7 +506,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "7d3a2218-8a6f-447f-a12c-735fd9d8a70e",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -517,7 +517,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "40334916-10e5-4047-873b-5422f4f93f8e",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -528,7 +528,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "37680d6d-34e3-44b0-be29-9478072a3e74",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -539,7 +539,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "cae88fc5-5c99-443f-9616-44162ecb7fe9",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -550,7 +550,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "prod d1b470bc-fefe-41d1-a526-f1b869bc054d\nstage cef34b43-25fa-4316-a36c-a0f23aa3b664",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "продукт для понижения плана"
             },
             {
@@ -583,7 +583,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "91fd25f8-c867-4636-91c1-03fcf832774a",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "Nune Khachatryan condition"
             },
             {
@@ -594,7 +594,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "fc95dfa0-53ae-441d-8e89-2df497c26ca5",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "sub+upsale inapp"
             },
             {
@@ -605,7 +605,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "1d0ea2e2-8421-438c-a9d4-3dce9e23de34",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "sub+upsale inapp"
             },
             {
@@ -616,7 +616,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "9c3a8676-1aa0-4c3b-8d3d-3bbe7977d4a8",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "sub+upsale inapp A/B Test"
             },
             {
@@ -627,7 +627,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "f1d3142e-c5f6-476d-ba7c-94439daa9204",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "sub+upsale inapp A/B Test"
             }
           ]
@@ -643,7 +643,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -654,7 +654,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -665,7 +665,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -676,7 +676,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -687,7 +687,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "юзается на 20.03"
             },
             {
@@ -698,7 +698,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -709,7 +709,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -720,7 +720,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -731,7 +731,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "юзается на 20.03"
             },
             {
@@ -742,7 +742,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -753,7 +753,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -896,7 +896,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -907,7 +907,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -918,7 +918,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -929,7 +929,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -940,7 +940,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -951,7 +951,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -962,7 +962,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -973,7 +973,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -984,7 +984,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -995,7 +995,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1006,7 +1006,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1017,7 +1017,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1028,7 +1028,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1039,7 +1039,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1050,7 +1050,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1061,7 +1061,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -1077,7 +1077,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1088,7 +1088,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1099,7 +1099,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1110,7 +1110,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1121,7 +1121,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1132,7 +1132,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1143,7 +1143,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1154,7 +1154,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1165,7 +1165,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1176,7 +1176,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1187,7 +1187,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1198,7 +1198,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1209,7 +1209,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1220,7 +1220,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1231,7 +1231,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1242,7 +1242,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1253,7 +1253,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1264,7 +1264,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1275,7 +1275,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1286,7 +1286,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1297,7 +1297,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1308,7 +1308,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1319,7 +1319,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1330,7 +1330,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1341,7 +1341,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1352,7 +1352,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1363,7 +1363,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1374,7 +1374,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1385,7 +1385,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1396,7 +1396,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1407,7 +1407,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1418,7 +1418,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1429,7 +1429,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1489,7 +1489,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -1511,7 +1511,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1522,7 +1522,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "non organic",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1533,7 +1533,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1544,7 +1544,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1555,7 +1555,7 @@ window.CATALOG_DATA = {
               "trial": "14 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1566,7 +1566,7 @@ window.CATALOG_DATA = {
               "trial": "30 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1577,7 +1577,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "non organic",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1588,7 +1588,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1599,7 +1599,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1610,7 +1610,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1621,7 +1621,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1632,7 +1632,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1654,7 +1654,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "organic",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1665,7 +1665,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "organic",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1687,7 +1687,7 @@ window.CATALOG_DATA = {
               "trial": "14 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1698,7 +1698,7 @@ window.CATALOG_DATA = {
               "trial": "30 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1709,7 +1709,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1720,7 +1720,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1731,7 +1731,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1742,7 +1742,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1753,7 +1753,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1764,7 +1764,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1775,7 +1775,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1786,7 +1786,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "с автоотменой"
             },
             {
@@ -1797,7 +1797,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1808,7 +1808,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1819,7 +1819,7 @@ window.CATALOG_DATA = {
               "trial": "No trial",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1830,7 +1830,7 @@ window.CATALOG_DATA = {
               "trial": "No trial",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1841,7 +1841,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1852,7 +1852,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1863,7 +1863,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "sub+upsale inapp"
             },
             {
@@ -1874,7 +1874,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "sub+upsale inapp"
             }
           ]
@@ -1890,7 +1890,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1901,7 +1901,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1912,7 +1912,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1923,7 +1923,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1934,7 +1934,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -1945,7 +1945,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2055,7 +2055,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2066,7 +2066,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "test"
             },
             {
@@ -2077,7 +2077,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2088,7 +2088,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2099,7 +2099,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2110,7 +2110,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2121,7 +2121,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "likes_followerse_pack_500"
             },
             {
@@ -2132,7 +2132,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "likes_followerse_pack_500"
             },
             {
@@ -2143,7 +2143,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "likes_1500_followerse_pack"
             },
             {
@@ -2154,7 +2154,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "likes_1500_followerse_pack"
             },
             {
@@ -2165,7 +2165,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "comments_800_followerse_pack"
             },
             {
@@ -2176,7 +2176,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "comments_800_followerse_pack"
             },
             {
@@ -2187,7 +2187,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "comments_followerse_pack_100"
             },
             {
@@ -2198,7 +2198,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": "comments_followerse_pack_100"
             }
           ]
@@ -2214,7 +2214,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2225,7 +2225,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2236,7 +2236,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2247,7 +2247,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2258,7 +2258,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2269,7 +2269,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2280,7 +2280,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2291,7 +2291,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2302,7 +2302,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2313,7 +2313,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2324,7 +2324,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2335,7 +2335,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2346,7 +2346,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2357,7 +2357,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2368,7 +2368,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2379,7 +2379,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2390,7 +2390,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2401,7 +2401,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2412,7 +2412,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2423,7 +2423,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2434,7 +2434,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2445,7 +2445,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2456,7 +2456,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2467,7 +2467,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2478,7 +2478,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2489,7 +2489,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2500,7 +2500,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2511,7 +2511,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2522,7 +2522,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2533,7 +2533,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -2555,7 +2555,7 @@ window.CATALOG_DATA = {
               "trial": "-",
               "billing": "",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": "для ревьюера (караоке)"
             },
             {
@@ -2566,7 +2566,7 @@ window.CATALOG_DATA = {
               "trial": "-",
               "billing": "",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": "для ревьюера (караоке)"
             },
             {
@@ -2577,7 +2577,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": "-"
             },
             {
@@ -2588,7 +2588,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": "-"
             },
             {
@@ -2599,7 +2599,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2610,7 +2610,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2621,7 +2621,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2632,7 +2632,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2643,7 +2643,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2654,7 +2654,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2665,7 +2665,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2676,7 +2676,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2687,7 +2687,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2698,7 +2698,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2709,7 +2709,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2720,7 +2720,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2731,7 +2731,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on / sub+upsale inapp"
             },
             {
@@ -2742,7 +2742,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on / sub+upsale inapp"
             }
           ]
@@ -2758,7 +2758,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2769,7 +2769,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2802,7 +2802,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2813,7 +2813,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2824,7 +2824,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2835,7 +2835,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2846,7 +2846,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2857,7 +2857,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2868,7 +2868,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2879,7 +2879,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2890,7 +2890,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2901,7 +2901,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2912,7 +2912,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -2923,7 +2923,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -2939,7 +2939,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2950,7 +2950,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2961,7 +2961,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2972,7 +2972,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2983,7 +2983,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -2994,7 +2994,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3005,7 +3005,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3016,7 +3016,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3027,7 +3027,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3038,7 +3038,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3049,7 +3049,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3060,7 +3060,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3071,7 +3071,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3082,7 +3082,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3093,7 +3093,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3104,7 +3104,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3115,7 +3115,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3126,7 +3126,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3137,7 +3137,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3148,7 +3148,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3159,7 +3159,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3170,7 +3170,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3181,7 +3181,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3192,7 +3192,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3203,7 +3203,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "old default / on"
             },
             {
@@ -3214,7 +3214,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "old default / on"
             },
             {
@@ -3225,7 +3225,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "old default / on"
             },
             {
@@ -3236,7 +3236,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "old default / on"
             },
             {
@@ -3247,7 +3247,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "old default / on"
             },
             {
@@ -3258,7 +3258,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "old default / on"
             }
           ]
@@ -3280,7 +3280,7 @@ window.CATALOG_DATA = {
               "trial": "-",
               "billing": "",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": "для ревьюера (AI Planner)"
             },
             {
@@ -3291,7 +3291,7 @@ window.CATALOG_DATA = {
               "trial": "-",
               "billing": "",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": "для ревьюера (AI Planner)"
             },
             {
@@ -3302,7 +3302,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": "-"
             },
             {
@@ -3313,7 +3313,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "нон-орг",
-              "status": "on",
+              "status": "off",
               "comments": "-"
             },
             {
@@ -3324,7 +3324,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3335,7 +3335,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3346,7 +3346,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3357,7 +3357,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3368,7 +3368,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3379,7 +3379,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3390,7 +3390,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3401,7 +3401,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3412,7 +3412,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3423,7 +3423,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3434,7 +3434,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3445,7 +3445,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3456,7 +3456,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on / sub+upsale inapp"
             },
             {
@@ -3467,7 +3467,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on / sub+upsale inapp"
             }
           ]
@@ -3483,7 +3483,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3494,7 +3494,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3527,7 +3527,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3538,7 +3538,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3549,7 +3549,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3560,7 +3560,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3571,7 +3571,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3582,7 +3582,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3593,7 +3593,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3604,7 +3604,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3615,7 +3615,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3626,7 +3626,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3637,7 +3637,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3648,7 +3648,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "on",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3659,7 +3659,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3670,7 +3670,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3681,7 +3681,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -3692,7 +3692,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -3708,7 +3708,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3719,7 +3719,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3730,7 +3730,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3741,7 +3741,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3752,7 +3752,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3763,7 +3763,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3774,7 +3774,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3785,7 +3785,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3796,7 +3796,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3807,7 +3807,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3818,7 +3818,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3829,7 +3829,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3840,7 +3840,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3851,7 +3851,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3862,7 +3862,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3873,7 +3873,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3884,7 +3884,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3895,7 +3895,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3906,7 +3906,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3917,7 +3917,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3928,7 +3928,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3939,7 +3939,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3950,7 +3950,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3961,7 +3961,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3972,7 +3972,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3983,7 +3983,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -3994,7 +3994,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4005,7 +4005,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4016,7 +4016,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4027,7 +4027,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4038,7 +4038,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4049,7 +4049,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4060,7 +4060,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4071,7 +4071,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4082,7 +4082,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4093,7 +4093,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             }
           ]
@@ -4115,7 +4115,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "7571a3d0-607a-4ed6-b1fc-8d3a4937f96d",
               "segment": "нон-орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4126,7 +4126,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "53cd5556-fb5e-4da2-89dc-d7ee8395b327",
               "segment": "нон-орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4137,7 +4137,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "8d8a2bc4-3deb-4959-82d7-f3d9e488877d",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4148,7 +4148,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "f6ec62c6-8d80-4869-87b0-768f90f451a7",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4159,7 +4159,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "a745a334-040e-45ab-b2a7-a5f3f32b4bd1",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -4175,7 +4175,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4186,7 +4186,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4197,7 +4197,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "нон орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4208,7 +4208,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "нон орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4219,7 +4219,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4230,7 +4230,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4241,7 +4241,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4252,7 +4252,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4263,7 +4263,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "нон орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4274,7 +4274,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4285,7 +4285,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4296,7 +4296,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4307,7 +4307,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "нон орг",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4318,7 +4318,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4329,7 +4329,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4340,7 +4340,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -4362,7 +4362,7 @@ window.CATALOG_DATA = {
               "trial": "-",
               "billing": "",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": "для ревьюера (караоке)"
             },
             {
@@ -4373,7 +4373,7 @@ window.CATALOG_DATA = {
               "trial": "-",
               "billing": "",
               "segment": "орг",
-              "status": "",
+              "status": "off",
               "comments": "для ревьюера (караоке)"
             },
             {
@@ -4384,7 +4384,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4395,7 +4395,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4406,7 +4406,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4417,7 +4417,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4428,7 +4428,7 @@ window.CATALOG_DATA = {
               "trial": "1 day",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4439,7 +4439,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on / sub+upsale inapp"
             },
             {
@@ -4450,7 +4450,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4461,7 +4461,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -4477,7 +4477,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4488,7 +4488,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4499,7 +4499,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4510,7 +4510,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4521,7 +4521,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -4537,7 +4537,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4548,7 +4548,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4559,7 +4559,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": "on"
             },
             {
@@ -4570,7 +4570,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -4592,7 +4592,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4603,7 +4603,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4614,7 +4614,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4625,7 +4625,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4636,7 +4636,7 @@ window.CATALOG_DATA = {
               "trial": "14 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4647,7 +4647,7 @@ window.CATALOG_DATA = {
               "trial": "30 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4658,7 +4658,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4669,7 +4669,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4680,7 +4680,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4691,7 +4691,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4702,7 +4702,7 @@ window.CATALOG_DATA = {
               "trial": "3 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4713,7 +4713,7 @@ window.CATALOG_DATA = {
               "trial": "14 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4724,7 +4724,7 @@ window.CATALOG_DATA = {
               "trial": "30 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4735,7 +4735,7 @@ window.CATALOG_DATA = {
               "trial": "No trial",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4746,7 +4746,7 @@ window.CATALOG_DATA = {
               "trial": "No trial",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4757,7 +4757,7 @@ window.CATALOG_DATA = {
               "trial": "7 days",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
@@ -4773,7 +4773,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4784,7 +4784,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4795,7 +4795,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4806,7 +4806,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4817,7 +4817,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4828,7 +4828,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4839,7 +4839,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4850,7 +4850,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4861,7 +4861,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4872,7 +4872,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4883,7 +4883,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4894,7 +4894,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4905,7 +4905,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             },
             {
@@ -4916,7 +4916,7 @@ window.CATALOG_DATA = {
               "trial": "",
               "billing": "",
               "segment": "",
-              "status": "",
+              "status": "off",
               "comments": ""
             }
           ]
