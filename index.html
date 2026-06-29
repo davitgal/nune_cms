@@ -69,9 +69,11 @@
             <button data-f="active">Активные</button>
             <button data-f="stopped">На стопе</button>
           </div>
+          <button id="btn-filters" class="btn btn-ghost" title="Фильтры">⛃ Фильтры<span id="filter-count" class="filter-count" hidden>0</span></button>
           <button id="btn-add" class="btn btn-primary">+ Вариант</button>
         </div>
       </header>
+      <div id="filter-bar" class="filter-bar" hidden><!-- faceted filters --></div>
       <div id="variant-list" class="variant-list"><!-- cards --></div>
       <div id="catalog-view" class="catalog-view" hidden><!-- price-list tables --></div>
     </main>
