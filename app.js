@@ -9,6 +9,7 @@
   var CREDS = { user: "admin", pass: "followers2026" };
   var AUTH_KEY = "fcms_auth";
   var DATA_KEY = "fcms_data_v1";
+  var CATALOG_KEY = "fcms_catalog_v2";
 
   // ---- tiny helpers ----
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -30,15 +31,31 @@
   function esc(s) { return String(s == null ? "" : s); }
 
   // ---- state ----
-  var state = { data: null, productId: null, filter: "all", query: "", editing: null, isNew: false };
+  // mode: "onb" (онбординги — для продакта/QA) | "catalog" (прайс-лист — для key-менеджера)
+  var state = {
+    mode: "onb", data: null, catalog: null,
+    productId: null, catProductId: null,
+    filter: "all", query: "", editing: null, isNew: false,
+    filtersOpen: false,
+    catFilters: { segment: "", period: "", section: "", trial: "", billing: "" },
+    onbFilters: { vat: "", localization: "", has: "" },
+    collapsed: {} // ключ "<productId>::<sectionTitle>" -> true
+  };
 
   function loadData() {
     var saved = localStorage.getItem(DATA_KEY);
     if (saved) { try { return JSON.parse(saved); } catch (e) {} }
     return clone(window.SEED_DATA);
   }
+  function loadCatalog() {
+    var saved = localStorage.getItem(CATALOG_KEY);
+    if (saved) { try { return JSON.parse(saved); } catch (e) {} }
+    return clone(window.CATALOG_DATA || { products: [] });
+  }
   function persist() { localStorage.setItem(DATA_KEY, JSON.stringify(state.data)); }
+  function persistCatalog() { localStorage.setItem(CATALOG_KEY, JSON.stringify(state.catalog)); }
   function currentProduct() { return state.data.products.find(function (p) { return p.id === state.productId; }); }
+  function currentCatProduct() { return state.catalog.products.find(function (p) { return p.id === state.catProductId; }); }
 
   // ============================================================
   //  AUTH
@@ -78,14 +95,65 @@
   // ============================================================
   function boot() {
     state.data = loadData();
+    state.catalog = loadCatalog();
     if (!state.productId || !currentProduct()) state.productId = state.data.products[0].id;
+    if ((!state.catProductId || !currentCatProduct()) && state.catalog.products.length)
+      state.catProductId = state.catalog.products[0].id;
+    applyMode();
     renderNav();
     renderProduct();
   }
 
+  // ---- mode (роль) switching ----
+  function applyMode() {
+    var isCat = state.mode === "catalog";
+    $$("#mode-switch button").forEach(function (b) { b.classList.toggle("active", b.dataset.m === state.mode); });
+    $("#variant-list").hidden = isCat;
+    $("#catalog-view").hidden = !isCat;
+    $("#btn-add").textContent = isCat ? "+ Продукт" : "+ Вариант";
+    // relabel status filter for the active mode
+    var labels = isCat
+      ? { all: "Все", active: "Вкл", stopped: "Выкл" }
+      : { all: "Все", active: "Активные", stopped: "На стопе" };
+    $$("#status-filter button").forEach(function (b) { b.textContent = labels[b.dataset.f]; });
+    $("#search").placeholder = isCat
+      ? "Поиск по продукту, Product ID, billing…"
+      : "Поиск по названию, variant key, ссылке…";
+    $("#btn-add").title = isCat ? "Добавить продукт" : "Добавить вариант онбординга";
+    renderFilterBar();
+  }
+
+  function switchMode(m) {
+    if (state.mode === m) return;
+    state.mode = m;
+    state.query = ""; $("#search").value = "";
+    state.filter = "all";
+    $$("#status-filter button").forEach(function (x) { x.classList.toggle("active", x.dataset.f === "all"); });
+    applyMode();
+    renderNav();
+    renderProduct();
+    closeSidebar();
+  }
+  $$("#mode-switch button").forEach(function (b) {
+    b.addEventListener("click", function () { switchMode(b.dataset.m); });
+  });
+
   function renderNav() {
     var nav = $("#product-nav");
     nav.innerHTML = "";
+    if (state.mode === "catalog") {
+      state.catalog.products.forEach(function (p) {
+        var count = p.sections.reduce(function (n, s) { return n + s.rows.length; }, 0);
+        nav.appendChild(el("div", {
+          class: "nav-item" + (p.id === state.catProductId ? " active" : ""),
+          onclick: function () { state.catProductId = p.id; state.query = ""; $("#search").value = ""; renderNav(); renderProduct(); closeSidebar(); }
+        }, [
+          el("span", { text: p.name }),
+          el("span", { class: "badge", text: String(count) })
+        ]));
+      });
+      return;
+    }
     state.data.products.forEach(function (p) {
       var item = el("div", {
         class: "nav-item" + (p.id === state.productId ? " active" : ""),
@@ -99,6 +167,7 @@
   }
 
   function renderProduct() {
+    if (state.mode === "catalog") { renderCatalog(); return; }
     var p = currentProduct();
     $("#product-title").textContent = p.name;
     var active = p.variants.filter(function (v) { return v.status === "active"; }).length;
@@ -107,8 +176,336 @@
     renderList();
   }
 
+  // ============================================================
+  //  PRODUCTS (price-list) — домен key-менеджера
+  // ============================================================
+  // editable fields shown in the product editor drawer
+  var CAT_FIELDS = [
+    { k: "name",      label: "Название продукта", ph: "Insta Followers Plan" },
+    { k: "productId", label: "Product ID",        ph: "insta_follow_plan_…", mono: true },
+    { k: "price",     label: "Цена",              ph: "$39.99 USD/month" },
+    { k: "setupFee",  label: "Setup fee",         ph: "$4.99 USD" },
+    { k: "trial",     label: "Trial",             ph: "3 days" },
+    { k: "billing",   label: "Billing / variant", ph: "truegate id / variant", mono: true },
+    { k: "segment",   label: "Сегмент",           ph: "орг / нон-орг / VAT" }
+  ];
+
+  // ---- derived attributes for filters / columns ----
+  function periodOf(row) {
+    var s = (row.price || "").toLowerCase();
+    if (/month/.test(s)) return "month";
+    if (/week|7\s*days?/.test(s)) return "week";
+    if (/\bday/.test(s)) return "day";
+    return "once"; // паки/апсейлы без периода = разовый
+  }
+  function periodLabel(p) {
+    return { month: "Месячный", week: "Недельный", day: "Дневной", once: "Разовый" }[p] || "";
+  }
+  function segOf(row) {
+    var s = (row.segment || "").toLowerCase();
+    if (s.indexOf("vat") > -1) return "vat";
+    if (s.indexOf("1time") > -1) return "1time";
+    if (s.indexOf("нон") > -1 || s.indexOf("non") > -1) return "nonorg";
+    if (s.indexOf("орг") > -1 || s.indexOf("organic") > -1) return "org";
+    return "";
+  }
+  function sectionType(title) {
+    var t = (title || "").toLowerCase();
+    if (t.indexOf("подписк") > -1) return "subs";
+    if (t.indexOf("апсейл") > -1) return "upsell";
+    if (t.indexOf("инап") > -1 || t.indexOf("сетк") > -1) return "inapp";
+    if (t.indexOf("промо") > -1) return "promo";
+    return "other";
+  }
+  function hasTrial(row) {
+    var t = (row.trial || "").toLowerCase().trim();
+    return t !== "" && t !== "-" && t.indexOf("no") === -1;
+  }
+
+  function catFiltersActive() {
+    var f = state.catFilters;
+    return !!(f.segment || f.period || f.section || f.trial || f.billing);
+  }
+  function isFiltering() {
+    return !!state.query || state.filter !== "all" || catFiltersActive();
+  }
+
+  function catMatches(row) {
+    if (state.filter === "active" && row.status !== "on") return false;
+    if (state.filter === "stopped" && row.status === "on") return false; // "Выкл" = всё, что не on
+    var f = state.catFilters;
+    if (f.segment && segOf(row) !== f.segment) return false;
+    if (f.period && periodOf(row) !== f.period) return false;
+    if (f.trial === "yes" && !hasTrial(row)) return false;
+    if (f.trial === "no" && hasTrial(row)) return false;
+    if (f.billing === "yes" && !row.billing) return false;
+    if (f.billing === "no" && row.billing) return false;
+    if (state.query) {
+      var q = state.query.toLowerCase();
+      var hay = [row.name, row.productId, row.billing, row.segment, row.comments].join(" ").toLowerCase();
+      if (hay.indexOf(q) === -1) return false;
+    }
+    return true;
+  }
+
+  function renderCatalog() {
+    var p = currentCatProduct();
+    var view = $("#catalog-view");
+    view.innerHTML = "";
+    if (!p) {
+      $("#product-title").textContent = "Продукты";
+      $("#product-meta").textContent = "Нет данных.";
+      return;
+    }
+    renderCatalogMeta();
+
+    p.sections.forEach(function (section) {
+      if (state.catFilters.section && sectionType(section.title) !== state.catFilters.section) return;
+      var visible = section.rows.filter(catMatches);
+      if (!visible.length && isFiltering()) return; // прячем пустую после фильтра секцию
+
+      var accent = sectionAccent(section.title);
+      var key = p.id + "::" + section.title;
+      var collapsed = !!state.collapsed[key];
+
+      var head = el("div", {
+        class: "cat-section-head" + (collapsed ? " is-collapsed" : ""),
+        style: "border-left:3px solid " + accent.color + ";background:" + accent.bg,
+        onclick: function () { state.collapsed[key] = !state.collapsed[key]; renderCatalog(); }
+      }, [
+        el("span", { class: "cat-chevron" + (collapsed ? " collapsed" : ""), text: "▾" }),
+        el("h3", { text: section.title }),
+        el("span", { class: "count", text: String(visible.length) + (visible.length !== section.rows.length ? "/" + section.rows.length : "") }),
+        el("div", { class: "spacer" }),
+        el("button", {
+          class: "btn btn-ghost btn-sm", text: "+ строка",
+          title: "Добавить продукт в секцию «" + section.title + "»",
+          onclick: function (e) { e.stopPropagation(); addCatRow(section); }
+        })
+      ]);
+      var sec = el("div", { class: "cat-section" }, [head]);
+
+      if (!collapsed) {
+        if (!visible.length) {
+          sec.appendChild(el("div", { class: "cat-empty", text: "Пока пусто — нажмите «+ строка», чтобы добавить продукт." }));
+        } else {
+          sec.appendChild(catHeaderRow());
+          var list = el("div", { class: "cat-list" });
+          visible.forEach(function (row) { list.appendChild(catRow(row, section, accent)); });
+          sec.appendChild(list);
+        }
+      }
+      view.appendChild(sec);
+    });
+
+    if (!view.children.length) {
+      view.appendChild(el("div", { class: "empty", html: "Ничего не найдено.<br>Сбросьте поиск или фильтры." }));
+    }
+  }
+
+  // per-section accent colour (немного цвета + быстрее ориентироваться)
+  function sectionAccent(title) {
+    var t = (title || "").toLowerCase();
+    if (t.indexOf("подписк") > -1) return { color: "#6c8cff", bg: "rgba(108,140,255,.10)" };
+    if (t.indexOf("апсейл") > -1) return { color: "#8a6cff", bg: "rgba(138,108,255,.10)" };
+    if (t.indexOf("инап") > -1 || t.indexOf("сетк") > -1) return { color: "#2fbf71", bg: "rgba(47,191,113,.10)" };
+    if (t.indexOf("промо") > -1) return { color: "#f0a035", bg: "rgba(240,160,53,.10)" };
+    if (t.indexOf("фолов") > -1 || t.indexOf("лайк") > -1 || t.indexOf("коммент") > -1) return { color: "#37b6c4", bg: "rgba(55,182,196,.10)" };
+    return { color: "var(--line)", bg: "transparent" };
+  }
+
+  // column titles row above each section list
+  function catHeaderRow() {
+    return el("div", { class: "cat-head-row" }, [
+      el("span", { class: "cat-grab-ph" }),
+      el("div", { class: "cat-row-main", text: "Продукт / Product ID" }),
+      el("div", { class: "cat-row-price", text: "Цена" }),
+      el("div", { class: "cat-row-period", text: "Период" }),
+      el("div", { class: "cat-row-seg", text: "Сегмент" }),
+      el("div", { class: "cat-row-status", text: "Статус" }),
+      el("div", { class: "cat-row-actions", text: "" })
+    ]);
+  }
+
+  function catRow(row, section, accent) {
+    var canReorder = !isFiltering();
+    var handle = el("span", {
+      class: "cat-grab" + (canReorder ? "" : " disabled"),
+      text: "⠿",
+      title: canReorder ? "Перетащите, чтобы изменить порядок" : "Сбросьте поиск и фильтры, чтобы сортировать",
+      draggable: canReorder ? "true" : null
+    });
+
+    var statusOn = row.status === "on";
+    var pill = el("button", {
+      class: "pill " + (statusOn ? "active" : "stopped") + " pill-btn",
+      text: statusOn ? "Вкл" : "Выкл",
+      title: "Переключить статус",
+      onclick: function (e) {
+        e.stopPropagation();
+        row.status = statusOn ? "off" : "on";
+        persistCatalog();
+        renderCatalog();
+      }
+    });
+
+    var per = periodOf(row);
+    var rowEl = el("div", {
+      class: "cat-row",
+      onclick: function () { openCatEditor(row, section, false); }
+    }, [
+      handle,
+      el("div", { class: "cat-row-main" }, [
+        el("div", { class: "cat-row-name", text: row.name || "Без названия" }),
+        el("div", { class: "cat-row-id", text: row.productId || "— без product id —" })
+      ]),
+      el("div", { class: "cat-row-price", text: row.price || "—" }),
+      el("div", { class: "cat-row-period" }, [el("span", { class: "period-chip period-" + per, text: periodLabel(per) })]),
+      el("div", { class: "cat-row-seg", text: row.segment || "" }),
+      el("div", { class: "cat-row-status" }, [pill]),
+      el("div", { class: "cat-row-actions" }, [
+        el("button", {
+          class: "row-edit", text: "✏️", title: "Редактировать",
+          onclick: function (e) { e.stopPropagation(); openCatEditor(row, section, false); }
+        }),
+        el("button", {
+          class: "row-del", text: "🗑", title: "Удалить",
+          onclick: function (e) {
+            e.stopPropagation();
+            if (!confirm("Удалить «" + (row.name || row.productId || "продукт") + "»?")) return;
+            var idx = section.rows.indexOf(row);
+            if (idx > -1) section.rows.splice(idx, 1);
+            persistCatalog(); renderCatalog();
+            toast("Удалено", "warn");
+          }
+        })
+      ])
+    ]);
+
+    // drag-and-drop reorder (внутри одной секции)
+    if (canReorder) {
+      handle.addEventListener("dragstart", function (e) {
+        state.dragRow = row; state.dragSection = section;
+        e.dataTransfer.effectAllowed = "move";
+        try { e.dataTransfer.setData("text/plain", ""); } catch (_) {}
+        try { e.dataTransfer.setDragImage(rowEl, 20, 16); } catch (_) {}
+        setTimeout(function () { rowEl.classList.add("dragging"); }, 0);
+      });
+      handle.addEventListener("dragend", function () {
+        rowEl.classList.remove("dragging");
+        $$(".cat-row.drop-target").forEach(function (n) { n.classList.remove("drop-target"); });
+        state.dragRow = null; state.dragSection = null;
+      });
+      rowEl.addEventListener("dragover", function (e) {
+        if (!state.dragRow || state.dragSection !== section || state.dragRow === row) return;
+        e.preventDefault();
+        rowEl.classList.add("drop-target");
+      });
+      rowEl.addEventListener("dragleave", function () { rowEl.classList.remove("drop-target"); });
+      rowEl.addEventListener("drop", function (e) {
+        if (!state.dragRow || state.dragSection !== section || state.dragRow === row) return;
+        e.preventDefault();
+        var from = section.rows.indexOf(state.dragRow);
+        if (from > -1) section.rows.splice(from, 1);
+        var to = section.rows.indexOf(row);
+        section.rows.splice(to, 0, state.dragRow);
+        persistCatalog(); renderCatalog();
+      });
+    }
+    return rowEl;
+  }
+
+  function addCatRow(section) {
+    // строка добавляется в секцию только после «Сохранить» (отмена ничего не создаёт)
+    var row = { name: "", productId: "", price: "", setupFee: "", trial: "", billing: "", segment: "", status: "off", comments: "" };
+    openCatEditor(row, section, true);
+  }
+
+  function renderCatalogMeta() {
+    var p = currentCatProduct();
+    if (!p) return;
+    var total = 0, on = 0;
+    p.sections.forEach(function (s) {
+      total += s.rows.length;
+      on += s.rows.filter(function (r) { return r.status === "on"; }).length;
+    });
+    $("#product-title").textContent = p.name + " · продукты";
+    $("#product-meta").textContent =
+      total + " продуктов · " + on + " включённых · " + p.sections.length + " секций · ведёт key-менеджер";
+  }
+
+  // ---- product editor (drawer) ----
+  function openCatEditor(row, section, isNew) {
+    state.editKind = "cat";
+    state.editing = clone(row);
+    state.isNew = isNew;
+    state.catSection = section;
+    state.catOriginal = row;
+    $("#drawer-product").textContent = currentCatProduct().name + " · " + section.title;
+    $("#drawer-title").textContent = isNew ? "Новый продукт" : (row.name || row.productId || "Продукт");
+    $("#drawer-delete").textContent = "Удалить продукт";
+    $("#drawer-delete").style.display = isNew ? "none" : "";
+    renderCatForm();
+    $("#drawer-overlay").hidden = false;
+    $("#drawer").hidden = false;
+  }
+
+  function renderCatForm() {
+    var d = state.editing, body = $("#drawer-body");
+    body.innerHTML = "";
+    var core = el("div", { class: "section" });
+    CAT_FIELDS.forEach(function (f) {
+      core.appendChild(field(f.label, d[f.k], function (v) { d[f.k] = v; }, { ph: f.ph }));
+    });
+    body.appendChild(core);
+
+    var st = el("div", { class: "section" });
+    st.appendChild(selectField("Статус (orders)", d.status || "off", [
+      { v: "on", t: "Вкл — продукт live" },
+      { v: "off", t: "Выкл — не используется" }
+    ], function (v) { d.status = v; }));
+    body.appendChild(st);
+
+    var cm = el("div", { class: "section" });
+    cm.appendChild(sectionHead("Комментарий"));
+    cm.appendChild(field("", d.comments, function (v) { d.comments = v; }, { textarea: true, ph: "Заметка key-менеджера: где используется, A/B и т.д." }));
+    body.appendChild(cm);
+  }
+
+  function saveCat() {
+    var d = state.editing, sec = state.catSection;
+    if (!d.name.trim() && !d.productId.trim()) { toast("Укажите название или Product ID", "warn"); return; }
+    var idx = sec.rows.indexOf(state.catOriginal);
+    if (idx > -1) sec.rows[idx] = d; else sec.rows.push(d);
+    persistCatalog();
+    closeEditor();
+    renderCatalog();
+    toast("Сохранено", "ok");
+  }
+
+  function deleteCat() {
+    var sec = state.catSection;
+    var idx = sec.rows.indexOf(state.catOriginal);
+    if (idx < 0) { closeEditor(); return; } // ещё не сохранённый продукт
+    var name = state.editing.name || state.editing.productId || "продукт";
+    if (!confirm("Удалить «" + name + "»? Действие необратимо.")) return;
+    sec.rows.splice(idx, 1);
+    persistCatalog();
+    closeEditor();
+    renderCatalog();
+    toast("Удалено", "warn");
+  }
+
   function matches(v) {
     if (state.filter !== "all" && v.status !== state.filter) return false;
+    var f = state.onbFilters;
+    if (f.vat === "yes" && !v.vat) return false;
+    if (f.vat === "no" && v.vat) return false;
+    if (f.localization === "yes" && !v.localizationOn) return false;
+    if (f.localization === "no" && v.localizationOn) return false;
+    if (f.has === "packs" && !(v.packs && v.packs.length)) return false;
+    if (f.has === "upsells" && !(v.upsells && v.upsells.length)) return false;
+    if (f.has === "plans" && !(v.plans && v.plans.length)) return false;
     if (state.query) {
       var q = state.query.toLowerCase();
       var hay = [v.name, v.variantKey, v.link].join(" ").toLowerCase();
@@ -149,15 +546,17 @@
   }
   function stat(n, label) { return el("div", { class: "stat" }, [el("b", { text: String(n) }), label]); }
 
-  // search + filters
-  $("#search").addEventListener("input", function (e) { state.query = e.target.value; renderList(); });
+  // search + filters (mode-aware)
+  function renderCurrent() { if (state.mode === "catalog") renderCatalog(); else renderList(); }
+  $("#search").addEventListener("input", function (e) { state.query = e.target.value; renderCurrent(); });
   $$("#status-filter button").forEach(function (b) {
     b.addEventListener("click", function () {
       $$("#status-filter button").forEach(function (x) { x.classList.remove("active"); });
-      b.classList.add("active"); state.filter = b.dataset.f; renderList();
+      b.classList.add("active"); state.filter = b.dataset.f; renderCurrent();
     });
   });
   $("#btn-add").addEventListener("click", function () {
+    if (state.mode === "catalog") { addCatalogProduct(); return; }
     var p = currentProduct();
     openEditor({
       id: uid(p.id + "-new"), status: "active", statusLabel: "Активен", name: "", link: "",
@@ -166,12 +565,105 @@
     }, true);
   });
 
+  function addCatalogProduct() {
+    var p = currentCatProduct();
+    if (!p) return;
+    if (!p.sections.length) p.sections.push({ title: "Подписки", rows: [] });
+    addCatRow(p.sections[0]); // открывает редактор; строка добавится после «Сохранить»
+  }
+
+  // ============================================================
+  //  FILTERS (faceted) — общий бар для обоих режимов
+  // ============================================================
+  function filterSelect(label, value, options, onChange) {
+    var sel = el("select", { onchange: function (e) { onChange(e.target.value); } });
+    options.forEach(function (o) {
+      var opt = el("option", { value: o.v, text: o.t });
+      if (o.v === value) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    return el("label", { class: "fb-field" + (value ? " on" : "") }, [el("span", { text: label }), sel]);
+  }
+
+  function renderFilterBar() {
+    var bar = $("#filter-bar");
+    bar.innerHTML = "";
+    bar.hidden = !state.filtersOpen;
+    updateFilterCount();
+    if (!state.filtersOpen) return;
+
+    if (state.mode === "catalog") {
+      var f = state.catFilters;
+      bar.appendChild(filterSelect("Тип секции", f.section, [
+        { v: "", t: "Все" }, { v: "subs", t: "Подписки" }, { v: "upsell", t: "Апсейлы" },
+        { v: "inapp", t: "Инапка (веб-ап)" }, { v: "promo", t: "Промо" }
+      ], function (v) { f.section = v; renderCatalog(); updateFilterCount(); }));
+      bar.appendChild(filterSelect("Сегмент", f.segment, [
+        { v: "", t: "Все" }, { v: "org", t: "Орг" }, { v: "nonorg", t: "Нон-орг" },
+        { v: "vat", t: "VAT" }, { v: "1time", t: "1time" }
+      ], function (v) { f.segment = v; renderCatalog(); updateFilterCount(); }));
+      bar.appendChild(filterSelect("Период", f.period, [
+        { v: "", t: "Все" }, { v: "month", t: "Месячный" }, { v: "week", t: "Недельный" },
+        { v: "day", t: "Дневной" }, { v: "once", t: "Разовый" }
+      ], function (v) { f.period = v; renderCatalog(); updateFilterCount(); }));
+      bar.appendChild(filterSelect("Триал", f.trial, [
+        { v: "", t: "Все" }, { v: "yes", t: "С триалом" }, { v: "no", t: "Без триала" }
+      ], function (v) { f.trial = v; renderCatalog(); updateFilterCount(); }));
+      bar.appendChild(filterSelect("Billing ID", f.billing, [
+        { v: "", t: "Все" }, { v: "yes", t: "Есть" }, { v: "no", t: "Нет" }
+      ], function (v) { f.billing = v; renderCatalog(); updateFilterCount(); }));
+    } else {
+      var o = state.onbFilters;
+      bar.appendChild(filterSelect("VAT", o.vat, [
+        { v: "", t: "Все" }, { v: "yes", t: "С VAT" }, { v: "no", t: "Без VAT" }
+      ], function (v) { o.vat = v; renderList(); updateFilterCount(); }));
+      bar.appendChild(filterSelect("Локализация", o.localization, [
+        { v: "", t: "Все" }, { v: "yes", t: "Включена" }, { v: "no", t: "Выключена" }
+      ], function (v) { o.localization = v; renderList(); updateFilterCount(); }));
+      bar.appendChild(filterSelect("Наличие", o.has, [
+        { v: "", t: "Любое" }, { v: "plans", t: "С тарифами" }, { v: "packs", t: "С паками" }, { v: "upsells", t: "С апсейлами" }
+      ], function (v) { o.has = v; renderList(); updateFilterCount(); }));
+    }
+    bar.appendChild(el("button", { class: "btn btn-ghost btn-sm fb-reset", text: "✕ Сбросить фильтры", onclick: resetFilters }));
+  }
+
+  function activeFilterCount() {
+    var n = 0;
+    if (state.mode === "catalog") {
+      var f = state.catFilters;
+      ["segment", "period", "section", "trial", "billing"].forEach(function (k) { if (f[k]) n++; });
+    } else {
+      var o = state.onbFilters;
+      ["vat", "localization", "has"].forEach(function (k) { if (o[k]) n++; });
+    }
+    return n;
+  }
+  function updateFilterCount() {
+    var n = activeFilterCount();
+    var badge = $("#filter-count");
+    badge.textContent = String(n);
+    badge.hidden = n === 0;
+    $("#btn-filters").classList.toggle("has-active", n > 0);
+  }
+  function resetFilters() {
+    if (state.mode === "catalog") state.catFilters = { segment: "", period: "", section: "", trial: "", billing: "" };
+    else state.onbFilters = { vat: "", localization: "", has: "" };
+    renderFilterBar();
+    renderCurrent();
+  }
+  $("#btn-filters").addEventListener("click", function () {
+    state.filtersOpen = !state.filtersOpen;
+    renderFilterBar();
+  });
+
   // ============================================================
   //  EDITOR DRAWER
   // ============================================================
   function openEditor(variant, isNew) {
+    state.editKind = "onb";
     state.editing = clone(variant);
     state.isNew = isNew;
+    $("#drawer-delete").textContent = "Удалить вариант";
     $("#drawer-product").textContent = currentProduct().name;
     $("#drawer-title").textContent = isNew ? "Новый вариант" : (variant.name || "Вариант");
     $("#drawer-delete").style.display = isNew ? "none" : "";
@@ -194,6 +686,7 @@
     var input;
     if (opts.textarea) input = el("textarea", { oninput: function (e) { onInput(e.target.value); } });
     else input = el("input", { type: opts.type || "text", placeholder: opts.ph || "", oninput: function (e) { onInput(e.target.value); } });
+    if (opts.list) input.setAttribute("list", opts.list);
     if (opts.textarea) input.value = value || ""; else input.value = value || "";
     return el("label", { class: "field" }, [el("span", { text: label }), input]);
   }
@@ -221,9 +714,37 @@
     return el("div", { class: "section-head" }, children);
   }
 
+  function catalogForOnb() {
+    if (!state.catalog) return null;
+    return state.catalog.products.find(function (p) { return p.id === state.productId; });
+  }
+  // datalists linking the onboarding editor to the key-manager's catalog
+  function buildCatalogDatalists() {
+    var wrap = el("div", {});
+    var cp = catalogForOnb();
+    var codes = el("datalist", { id: "dl-cat-codes" });
+    var bills = el("datalist", { id: "dl-cat-billing" });
+    var seenC = {}, seenB = {};
+    if (cp) cp.sections.forEach(function (s) {
+      s.rows.forEach(function (r) {
+        if (r.productId && !seenC[r.productId]) {
+          seenC[r.productId] = 1;
+          codes.appendChild(el("option", { value: r.productId, label: [r.name, r.price].filter(Boolean).join(" · ") }));
+        }
+        if (r.billing && !seenB[r.billing]) {
+          seenB[r.billing] = 1;
+          bills.appendChild(el("option", { value: r.billing, label: [r.name, r.price].filter(Boolean).join(" · ") }));
+        }
+      });
+    });
+    wrap.appendChild(codes); wrap.appendChild(bills);
+    return wrap;
+  }
+
   function renderForm() {
     var d = state.editing, body = $("#drawer-body");
     body.innerHTML = "";
+    body.appendChild(buildCatalogDatalists());
 
     // --- core ---
     var core = el("div", { class: "section" });
@@ -259,7 +780,7 @@
         return [
           field("Продукт", item.name, function (v) { item.name = v; }, { ph: "Basic Plan" }),
           field("Цена", item.price, function (v) { item.price = v; }, { ph: "3 дня триал за $1.99, далее $19.99 в месяц" }),
-          field(currentProduct().billingLabel || "Billing ID", item.billingId, function (v) { item.billingId = v; }, { ph: "recurly / truegate id" })
+          field(currentProduct().billingLabel || "Billing ID", item.billingId, function (v) { item.billingId = v; }, { ph: "recurly / truegate id", list: "dl-cat-billing" })
         ];
       }));
 
@@ -269,7 +790,7 @@
       function (item) {
         return [el("div", { class: "row2" }, [
           field("Название", item.name, function (v) { item.name = v; }, { ph: "700 Followers - $14.99" }),
-          field("Product code", item.code, function (v) { item.code = v; }, { ph: "1_time_insta_pack_…" })
+          field("Product code", item.code, function (v) { item.code = v; }, { ph: "1_time_insta_pack_…", list: "dl-cat-codes" })
         ])];
       }));
 
@@ -281,11 +802,11 @@
           field("Заголовок", item.title, function (v) { item.title = v; }, { ph: "Апсейл 1" }),
           el("div", { class: "row2" }, [
             field("Основной", item.main, function (v) { item.main = v; }, { ph: "1.5K лайков за $19.99" }),
-            field("Product code", item.mainCode, function (v) { item.mainCode = v; })
+            field("Product code", item.mainCode, function (v) { item.mainCode = v; }, { list: "dl-cat-codes" })
           ]),
           el("div", { class: "row2" }, [
             field("Скидочный", item.discount, function (v) { item.discount = v; }, { ph: "1.5K лайков за $14.99" }),
-            field("Product code", item.discountCode, function (v) { item.discountCode = v; })
+            field("Product code", item.discountCode, function (v) { item.discountCode = v; }, { list: "dl-cat-codes" })
           ])
         ];
       }));
@@ -344,6 +865,7 @@
 
   // ---- save / delete ----
   $("#drawer-save").addEventListener("click", function () {
+    if (state.editKind === "cat") { saveCat(); return; }
     var d = state.editing, p = currentProduct();
     if (!d.name.trim()) { toast("Укажите название варианта", "warn"); return; }
     d.statusLabel = d.status === "active" ? "Активен" : "На стопе";
@@ -359,6 +881,7 @@
     toast("Сохранено", "ok");
   });
   $("#drawer-delete").addEventListener("click", function () {
+    if (state.editKind === "cat") { deleteCat(); return; }
     var d = state.editing, p = currentProduct();
     if (!confirm("Удалить вариант «" + (d.name || "без названия") + "»? Действие необратимо.")) return;
     p.variants = p.variants.filter(function (v) { return v.id !== d.id; });
@@ -372,18 +895,22 @@
   //  EXPORT / RESET
   // ============================================================
   $("#btn-export").addEventListener("click", function () {
-    var blob = new Blob([JSON.stringify(state.data, null, 2)], { type: "application/json" });
+    var payload = { onboardings: state.data, catalog: state.catalog };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
     var url = URL.createObjectURL(blob);
-    var a = el("a", { href: url, download: "followers-products-config.json" });
+    var a = el("a", { href: url, download: "followers-config.json" });
     document.body.appendChild(a); a.click(); a.remove();
     URL.revokeObjectURL(url);
-    toast("Экспортировано в JSON", "ok");
+    toast("Экспортировано: онбординги + каталог", "ok");
   });
   $("#btn-reset").addEventListener("click", function () {
-    if (!confirm("Сбросить все изменения и вернуть исходные данные из таблицы?")) return;
-    localStorage.removeItem(DATA_KEY);
-    boot();
-    toast("Данные сброшены к исходным", "warn");
+    var what = state.mode === "catalog" ? "продукты" : "онбординги";
+    if (!confirm("Сбросить «" + what + "» к исходным данным из таблицы?")) return;
+    if (state.mode === "catalog") { localStorage.removeItem(CATALOG_KEY); state.catalog = loadCatalog(); }
+    else { localStorage.removeItem(DATA_KEY); state.data = loadData(); }
+    renderNav();
+    renderProduct();
+    toast("Сброшено к исходным: " + what, "warn");
   });
 
   // ---- toast ----
